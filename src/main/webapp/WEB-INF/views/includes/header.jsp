@@ -24,7 +24,7 @@
               <a href="aram">박제 게시판</a>
             </li>
             <li>
-              <a href="aram">M.L</a>
+              <a href="test2">M.L</a>
             </li>
             <li>
               <a href="login">LOGIN</a>
