@@ -21,7 +21,7 @@
 
             </li>
             <li class="dropdown">
-              <a href="aram">박제 게시판</a>
+              <a href="">박제 게시판</a>
             </li>
             <li>
               <a href="test2">M.L</a>

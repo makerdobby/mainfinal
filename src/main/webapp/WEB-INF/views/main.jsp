@@ -160,9 +160,7 @@ object-fit: cover;
 
 <body>
 
-
-         
-    <main>
+<main>
         
         <%@include file="./includes/header.jsp" %>
       

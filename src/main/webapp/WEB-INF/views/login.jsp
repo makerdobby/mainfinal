@@ -249,7 +249,7 @@ function kakaoLogin() {
           url: '/v2/user/me',
           success: function (response) {
         	  console.log(response)
-        	  //location.href = 'easylogin?code='+response.id
+        	  location.href = 'loginboardhome?id='+response.id
         	  
           },
           fail: function (error) {
