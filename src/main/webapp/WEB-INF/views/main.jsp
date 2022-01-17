@@ -75,7 +75,7 @@ nav li li a:hover{background:#bdc3c7;background:#FAFBFB}
 
 .wrap {
 position: relative;
-width: 270px;
+width: 280px;
 height: 40px;
 margin: 0 auto;
 padding-top: 50px;
