@@ -241,8 +241,8 @@ padding-left : 50px;
 		<table id="champ_table">
 			<tr class="tier">
 				<th class="th_champ">챔피언</th>
-				<th class="th_rpt">승률</th>
 				<th class="th_rpt">픽률</th>
+				<th class="th_rpt">승률</th>
 				<th class="th_rpt">티어</th>
 			</tr>
 		</table>
