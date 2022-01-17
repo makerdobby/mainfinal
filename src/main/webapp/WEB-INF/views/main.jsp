@@ -180,7 +180,7 @@ object-fit: cover;
       
     <div class="wrap">
     	<div class="rap2">
-        <input id='search_area' type="text" class="searchTerm" placeholder="챔피언 이름을 검색하세요" autocomplete='on'>
+        <input id='search_area' type="text" class="searchTerm" placeholder="챔피언 이름을 검색하세요" autocomplete='on' onkeyup="enterkey()">
         <button  id="search_champ" type="submit" class="searchButton">Search</button>
         <div class="searchTerm" id='autoMaker'></div>
         </div>
@@ -237,6 +237,11 @@ $('#search_area').keydown(function(event){
         $('#insert_target').val('')	
     }
 })
+
+$("input[type=text]").on('keyup', function(e)
+		{ if(e.key==='Enter'||e.keyCode===13){
+			$("#search_champ").trigger('click'); } })
+
 
 $("#search_champ").click(function(){
 	let champname = $("#search_area").val()
