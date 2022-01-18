@@ -15,7 +15,7 @@ a{text-decoration:none;color:#fff}
 #header{background:#1E262D;width:100%;position:relative}
 #header:after{content:"";clear:both;display:block}
 .search{float:right;padding:28px}
-input{border:none;padding:10px;border-radius:20px}
+input{padding:10px;border-radius:20px}
 .logo{float:left;padding:26px 0 26px;font-weight: bold;}
 .logo a{font-size:28px;display:block;padding:0 0 0 20px}
 nav{float:right;}

@@ -1,5 +1,7 @@
 package com.lol.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.lol.bean.Champlst;
+import com.lol.bean.Member;
 import com.lol.service.ChampInfoMM;
 
 
@@ -54,6 +57,21 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView();
 		
 		return mav;
+	}
+	
+	@GetMapping(value = "/easylogin")
+	public String easylogin(Member mb, HttpSession session) {
+		
+		session.setAttribute("m_id", mb.getM_id() );
+		
+		return "redirect:/loginboardhome";
+	}
+	@GetMapping(value = "/easylogout")
+	public String easylogoit(HttpSession session) {
+		
+		session.invalidate();
+		
+		return "redirect:/";
 	}
 	
 }
