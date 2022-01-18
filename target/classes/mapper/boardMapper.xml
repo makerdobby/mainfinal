@@ -31,14 +31,13 @@
 			WHERE ROWNUM<=1*3
 		]]>
 	</select>
-	<!-- 
+	 
 	<update id="viewCntUp">
 		update BOARD set B_VIEWS = B_VIEWS + 1 where B_NUM = #{B_NUM}
 	</update>
 
 	<select id="getContents" resultType="Board">
-		SELECT * FROM B WHERE B_NUM
-		= #{bNum}
+		SELECT * FROM B WHERE B_NUM = #{bNum}
 	</select>
 
 	<select id="getReplyList" resultType="Reply">
@@ -51,8 +50,6 @@
 		VALUES(REPLY_SEQ.NEXTVAL,#{r_bnum},#{r_contents},#{r_id},default)
 	</insert>
 
-	useGeneratedKeys="true" 자동증가값을 얻을 수 있다. keyProperty="b_num"(필드명) my-sql은 
-		명시해야함.
 	<insert id="boardWriteSelectKey" useGeneratedKeys="true" keyProperty="b_num">
 		<selectKey keyProperty="b_num" resultType="int" order="BEFORE">
 			SELECT B_NUM+1 b_num from(
@@ -71,9 +68,8 @@
 	</insert>
 
 	<select id="getBfList" resultType="BoardFile">
-		SELECT * FROM BF WHERE BF_BNUM
-		= #{bNum}
-	</select> -->
+		SELECT * FROM BF WHERE BF_BNUM = #{bNum}
+	</select>
 
 	<select id="checkThumbs" resultType="String">
 		SELECT T_ID FROM THUMB WHERE T_ID = #{t_id} AND T_NUM = #{t_num}

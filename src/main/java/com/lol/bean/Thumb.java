@@ -15,6 +15,7 @@ public class Thumb {
 		super();
 		this.t_num = t_num;
 		this.t_id = t_id;
+		
 	}
 	
 	private int t_num; // 추천한 게시글

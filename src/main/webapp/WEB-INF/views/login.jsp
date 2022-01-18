@@ -236,10 +236,7 @@ html {
     </div>
 
 <!-- 카카오 스크립트 -->
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script>
-Kakao.init('b11084e50bf68f8f2d2794bd32141396'); //발급받은 키 중 javascript키를 사용해준다.
-console.log(Kakao.isInitialized()); // sdk초기화여부판단
 //카카오로그인
 
 function kakaoLogin() {
@@ -249,7 +246,7 @@ function kakaoLogin() {
           url: '/v2/user/me',
           success: function (response) {
         	  console.log(response)
-        	  location.href = 'loginboardhome?id='+response.id
+        	  location.href = 'easylogin?m_id='+response.id
         	  
           },
           fail: function (error) {
@@ -262,21 +259,6 @@ function kakaoLogin() {
       },
     })
   }
-//카카오로그아웃  
-function kakaoLogout() {
-    if (Kakao.Auth.getAccessToken()) {
-      Kakao.API.request({
-        url: '/v1/user/unlink',
-        success: function (response) {
-        	console.log(response)
-        },
-        fail: function (error) {
-          console.log(error)
-        },
-      })
-      Kakao.Auth.setAccessToken(undefined)
-    }
-  }  
 </script>
         
 </body>

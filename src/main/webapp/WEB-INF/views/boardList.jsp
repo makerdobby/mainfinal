@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="js/jquery.serializeObject.js"></script>
 
 
 <style>
@@ -87,15 +86,6 @@ display: grid;
 <body>
 <%@include file="./includes/header.jsp" %>
 
-	<h1>boardList.jsp</h1>
-
-	<c:if test="${!empty id}">
-		<div align="right">
-			<form name="logoutFrm" action="logout" method="post">
-				<a href="javascript:document.logoutFrm.submit()">로그아웃</a>
-			</form>
-		</div>
-	</c:if>
 
 	<!-- 회원정보 출력:MINFO view -->
 	<div id = "grid">
@@ -103,16 +93,28 @@ display: grid;
 	<table id="one_table">
 		<tr height="20px">
 			<td width=auto bgcolor="royalblue" align="center">ID</td>
-			<td>${id}</td>
+			<td>${m_id}</td>
 		</tr>
 		
 	</table>
 <div>
 
 	<!-- 글쓰기 -->
-	<form action='writefrm'>
+	<c:set var = "m_id" value = "${m_id}"/>
+	<%-- 로그인이 돼있다면 --%>
+            <c:if test="${!empty m_id}"> 
+	             <form action='writefrm'>
 		<button>글쓰기</button>
 	</form>
+			</c:if>
+			
+	<%-- 로그인이 안돼있다면 --%>
+			<c:if test="${empty m_id}">
+	              <form onsubmit="writealert()">
+		<button>글쓰기</button>
+	</form>
+            </c:if>
+	
 	
 	<table>
 		<tr bgcolor="red" height="30">
@@ -158,19 +160,15 @@ display: grid;
 		</c:forEach>
 	</table>
 	
-	<!-- 페이징 --><%-- 
-	<div align="center">${paging}</div>
-	 --%>
+	<!-- 페이징 -->
+	<div align="center">${pageBtn}</div>
+	 
 	</div>
 </div>
 <script type="text/javascript">
-$(window).bind('pageshow', function(event){
-	if ( event.originalEvent.persisted){
-		location.reload();
-	}
-	else{
-	}
-})	
+function writealert(){
+	alert("로그인 후 이용해주세요");
+}
 </script>
 
 </body>

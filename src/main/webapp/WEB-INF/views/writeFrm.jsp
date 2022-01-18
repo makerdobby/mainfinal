@@ -30,7 +30,7 @@
 				<td colspan="2" align="center">
 					<input type="submit" value="글작성">
 					<input type="reset" id="reset" value="취소">
-					<input type="button" onclick="location.href='./boardlist'" value="글목록"> 
+					<input type="button" onclick="location.href='/loginboardhome'" value="글목록"> 
 				</td>
 			</tr>
 

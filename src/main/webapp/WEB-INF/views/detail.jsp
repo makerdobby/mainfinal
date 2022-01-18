@@ -9,6 +9,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/jquery.serializeObject.js"></script>
 <title>${board.b_title}</title>
+
 <script type="text/javascript">
 $(function() {
 	let chkid = ${check_t_id};
@@ -16,17 +17,22 @@ $(function() {
 	if (chkid == 1) { //추천한 적이 있다
 		$('#thumbsdown').attr('style','display:none');
 		$('#thumbsup').css('display','inline');
-	}else{
+	}else if(chkid == 0){
 		$('#thumbsdown').attr('style','display:inline');
 		$('#thumbsup').css('display','none');
+	}else{
+		$('#thumbsdown').attr('style','display:inline');
+		$('#thumbsdown').attr('style','pointer-events: none');
+		$('#thumbsup').css('display','none');
 		
-	}
-	
-	if ( m_id == b_id){
-		$('#boardDelete').html('${delBtn}')
+		$('#thumbsdown').click(function(){
+			alert("로그인 후 이용해주세요");
+		})
 	}
 	
 });
+
+	
 </script>
 <style type="text/css">
 html {
@@ -289,25 +295,14 @@ button:hover {
 <body>
 	<header class="top-menu con row">
 		<div class="cell-right">
-			<!-- <a href="#">로그인</a> <a href="#">회원가입</a> -->
 			<!-- 글목록 버튼  -->
-			<a href="boardlist">글 목록</a>
-			<div>${delBtn}</div>
-			<!-- 로그아웃 버튼 -->
-			<c:if test="${!empty id}">
-				<div align="right">
-					<form name="logoutFrm" action="logout" method="post">
-						<a href="javascript:document.logoutFrm.submit()">로그아웃</a>
-					</form>
-				</div>
-			</c:if>
+			<a href="loginboardhome">글 목록</a>
 			
 			<!-- 글삭제 버튼 -->
-			<div id="boardDelete"></div>
+			${delBtn}
 		</div>
 	</header>
 
-	<h1 class="con">detail.jsp</h1>
 	<section class="article-detail table-common con row">
 		<table class="cell" border="1">
 			<colgroup>
@@ -316,7 +311,7 @@ button:hover {
 			<tbody>
 				<tr class="article-title">
 					<th>제목</th>
-					<td colspan="4">${board.b_title}</td>
+					<td colspan="4">[${board.b_num}] ${board.b_title}</td>
 				</tr>
 				<tr class="article-info">
 
@@ -326,10 +321,10 @@ button:hover {
 					<td>${board.b_views}</td>
 					<th>
 						<button id="thumbsdown" onclick="addThumbs()">
-							<img class="thumb-img" src="./images/thumbsdown.png">
+							<img class="thumb-img" src="./image/thumbsdown.png">
 						</button>
 						<button id="thumbsup" onclick="showalert()">
-							<img class="thumb-img" src="./images/thumbsup.png">
+							<img class="thumb-img" src="./image/thumbsup.png">
 						</button>
 					</th>
 					<td><div class="showthumbs">${board.b_thumbs}</div></td>
@@ -340,18 +335,11 @@ button:hover {
 						<div class="article-writer cell">
 							<div class="writer-icon">
 								<c:set var="files" value="${bfList}" />
-								<c:if test="${empty files}">
-					첨부된 파일이 없습니다.
-				</c:if>
+								
+								<c:if test="${empty files}">첨부된 파일이 없습니다.</c:if>
 								<c:if test="${!empty files}">
 									<c:forEach var="file" items="${files}">
-										<a
-											href="./download?sysFileName=${file.bf_sysName}&oriFileName=${file.bf_oriName}">
-											<i class="fa fa-file" style="font-size: 12px"></i>${file.bf_sysName}${file.bf_oriName}
-										</a>
-										<img src = "upload/${file.bf_sysName}" width = 100% >
-										
-										
+										<img src="upload/${file.bf_sysName}" width=100%>
 										<br>
 									</c:forEach>
 								</c:if>
@@ -368,13 +356,12 @@ button:hover {
 		<section class="reply-form">
 			<form id="rFrm" name="rFrm" action="replyInsert">
 				<div>
-					<img class="human-img" src="./images/human.png"><input
-						type="text" value="${mb.m_id}" readonly>
+					<img class="human-img" src="./image/human.png"><input
+						type="text" value="${m_id}" readonly>
 				</div>
 				<div>
 					<textarea rows="3" cols="50" name="r_contents" id="r_contents"> </textarea>
-					<input type="button" value="댓글전송"
-						onclick="replyInsert(${board.b_num})"
+					<input type="button" value="댓글전송" onclick="replyInsert(${board.b_num})"
 						style="width: 80px; height: 40px">
 				</div>
 			</form>
@@ -405,8 +392,8 @@ button:hover {
 	</div>
 
 </body>
-<script type="text/javascript">
 
+<script type="text/javascript">
 
 function replyInsert(bNum){
 	//text = $("#r_contents").val()
@@ -420,11 +407,6 @@ function replyInsert(bNum){
 	$.ajax({
 		type:"post",
 		url:"rest/replyinsert", // 'list/member/10' , 'list/board/10'
-		//urlencoded 방식
-		
-		//data: {r_bnum:bNum, r_contents:$('#r_contents').val()},
-		//data: $('#rFrm').serialize(), --> form태그 안의 내용을 전부 넘긴다는 뜻이다. 
-		//단, 여기서는 bNum이 없어서 위의 방식대로 한다.
 		data : json,
 		//urlencoded 방식이 아닌 json형태의 데이터를 서버에 넘긴다.
 		contentType:"application/json; charset=UTF-8",
@@ -448,9 +430,10 @@ function replyInsert(bNum){
 		}
 	});
 	
-}
+};
 
 // 회색이미지 클릭시 추천 +1
+
 function addThumbs(){
 	
 	$('#thumbsdown').attr('style','display:none');
@@ -460,7 +443,7 @@ function addThumbs(){
             type: "post",
             data: {
                 t_num: ${board.b_num},
-	  			t_id: ${mb.m_id}
+	  			t_id: ${m_id}
             },
             success: function (count) {
             		
@@ -480,11 +463,11 @@ function addThumbs(){
             	
             }
 		})
-	}
+	};
 	
 function showalert(){
 	alert("이미 추천한 게시글입니다.");
-}
+};
 	
 
     

@@ -46,9 +46,6 @@ public interface IBoardDao {
 	@Delete("DELETE FROM B WHERE B_NUM=#{bNum}")
 	boolean boardDelete(int bNum);
 
-	List<Map<String, Object>> myBatisTestMap(Map<String, Object> hMap);
-
-
 	void addThumbs(Thumb thumb);
 
 	int countThumbs(Thumb thumb);
@@ -57,7 +54,5 @@ public interface IBoardDao {
 
 	String checkThumbs(Thumb thumb);
 
-
-	
 
 }

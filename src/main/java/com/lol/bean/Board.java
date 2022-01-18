@@ -1,7 +1,6 @@
 package com.lol.bean;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 import org.apache.ibatis.type.Alias;
 
