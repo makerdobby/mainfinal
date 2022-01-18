@@ -8,6 +8,9 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/jquery.serializeObject.js"></script>
+<style>
+
+</style>
 <title>${board.b_title}</title>
 
 <script type="text/javascript">
@@ -35,6 +38,107 @@ $(function() {
 	
 </script>
 <style type="text/css">
+
+body {
+	font-family: sans-serif;
+	text-transform: uppercase;
+	font-size: 16px;
+	overflow: hidden;
+	margin: 0;
+}
+a, button{
+	cursor: pointer;
+}
+
+nav a, #header a {
+	text-decoration: none;
+	color: #fff
+}
+
+
+#header {
+	background: #1E262D;
+	width: 100%;
+	position: relative
+}
+
+#header:after {
+	content: "";
+	clear: both;
+	display: block
+}
+
+.search {
+	float: right;
+	padding: 28px
+}
+
+input {
+	border: none;
+	padding: 10px;
+	border-radius: 20px
+}
+
+.logo {
+	float: left;
+	padding: 26px 0 26px;
+	font-weight: bold;
+}
+
+.logo a {
+	font-size: 28px;
+	display: block;
+	padding: 0 0 0 20px
+}
+
+nav {
+	float: right;
+}
+
+nav>ul {
+	float: left;
+	position: relative
+}
+
+nav li {
+	list-style: none;
+	float: left
+}
+
+nav li a {
+	float: left;
+	padding: 35px
+}
+
+nav li a:hover {
+	background: #2C3E50
+}
+
+nav li ul {
+	display: none
+}
+
+nav li:hover ul {
+	display: inline
+}
+
+nav li li {
+	float: none
+}
+
+nav li li a {
+	float: none;
+	color: #333;
+	display: block;
+	padding: 8px 10px;
+	border-radius: 3px;
+	font-size: 13px
+}
+
+nav li li a:hover {
+	background: #bdc3c7;
+	background: #FAFBFB
+}
 html {
 	font-family: "Noto Sans KR", sans-serif;
 }
@@ -293,6 +397,7 @@ button:hover {
 </style>
 </head>
 <body>
+<%@include file="./includes/header.jsp"%>
 	<header class="top-menu con row">
 		<div class="cell-right">
 			<!-- 글목록 버튼  -->
@@ -361,8 +466,8 @@ button:hover {
 				</div>
 				<div>
 					<textarea rows="3" cols="50" name="r_contents" id="r_contents"> </textarea>
-					<input type="button" value="댓글전송" onclick="replyInsert(${board.b_num})"
-						style="width: 80px; height: 40px">
+					<button onclick="replyInsert(${board.b_num})"
+						style="width: 80px; height: 40px">댓글전송</button>
 				</div>
 			</form>
 		</section>
