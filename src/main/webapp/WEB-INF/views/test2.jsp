@@ -10,7 +10,7 @@
 </head>
 <style> 
 *, *:before, *:after {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0}
-body{font-family:sans-serif;text-transform:uppercase;font-size:16px;color:#fff;overflow: hidden;margin: 0;}
+body{font-family:sans-serif;text-transform:uppercase;font-size:16px;color:#fff;margin: 0;}
 a{text-decoration:none;color:#fff}
 #header{background:#1E262D;width:100%;position:relative}
 #header:after{content:"";clear:both;display:block}
@@ -61,11 +61,27 @@ width:100%;
 background-color: white;
 }
 
+#video {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 100vw;
+height: 100vh;
+z-index: -1;
+overflow: hidden;
+object-fit: cover;
+}
+
 </style>
 
 <body>
 
 <%@include file="./includes/header.jsp" %>	
+
+        <video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+      <source src="./videos/animated-mount-targon.mp4">
+
+</video>
 
 <div id=grid>
 <form action="http://127.0.0.1:5000/tospring" method="GET"  target="param">
