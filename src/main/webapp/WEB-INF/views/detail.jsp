@@ -28,9 +28,6 @@ $(function() {
 		$('#thumbsdown').attr('style','pointer-events: none');
 		$('#thumbsup').css('display','none');
 		
-		$('#thumbsdown').click(function(){
-			alert("로그인 후 이용해주세요");
-		})
 	}
 	
 });
@@ -466,8 +463,8 @@ button:hover {
 				</div>
 				<div>
 					<textarea rows="3" cols="50" name="r_contents" id="r_contents"> </textarea>
-					<button onclick="replyInsert(${board.b_num})"
-						style="width: 80px; height: 40px">댓글전송</button>
+					<input type="button" value="댓글전송" onclick="replyInsert(${board.b_num})"
+						style="width: 80px; height: 40px">
 				</div>
 			</form>
 		</section>
@@ -550,17 +547,19 @@ function addThumbs(){
                 t_num: ${board.b_num},
 	  			t_id: ${m_id}
             },
+            
+            
             success: function (count) {
-            		
+            	console.log(count)
             	 if( ${board.b_thumbs} == count){
             		/*  $('#thumbsdown').attr('style','pointer-events : none'); */
 					/* $('#thumbsdown').attr('style','display:none'); */
             		return;
             	 }
-            	else{
+            	else{            	
 	            	$(".showthumbs").html(count);
             	} 
-            		location.reload();
+            		
             },
             error: function (err ) {
             	
@@ -575,6 +574,6 @@ function showalert(){
 };
 	
 
-    
+
 </script>
 </html>

@@ -99,7 +99,7 @@ public class BoardMM {
 		mav = new ModelAndView();
 
 		String view = null;
-
+		
 		// 사용자가 선택한 글의 글번호를 보내주어서 board bean으로 받아온다.
 		Board board = bDao.getContents(bNum);
 
@@ -140,9 +140,8 @@ public class BoardMM {
 
 		// 본인글일때 삭제 버튼 생성
 			String id = (String) session.getAttribute("m_id");
-			System.out.println("id : "+id);
 			String b_id = board.getB_id();
-			System.out.println("b_id : "+b_id);
+			
 			if (id != null){
 				if(id.equals(b_id)) {
 					mav.addObject("delBtn", makeHtmlDelBtn(board.getB_num()));
@@ -192,15 +191,15 @@ public class BoardMM {
 	public Board boardWrite(Board board, List<MultipartFile> files, HttpSession session) {
 
 		board.setB_id(session.getAttribute("m_id").toString());
-
+		
 		// 새 번호의 글에 title과 contents를 넣어준다.
+		System.out.println("||    ||\n||    ||\n|| boardWrite 호출됨!|| \n||    ||\n||    ||\n");
 		boolean b = bDao.boardWriteSelectKey(board);
 		System.out.println("bnum=" + board.getB_num()); // b_num 확인
 		if (b) { // 글쓰기 성공
 			if (files.get(0).getSize() != 0) { // 첨부파일이 존재
 				if (fm.fileUp(files, board.getB_num(), session))
 					System.out.println("upload OK");
-
 			}
 		} else { // 글쓰기 실패
 		}

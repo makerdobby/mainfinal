@@ -60,8 +60,9 @@ public class BoardController { // 게시판 관련 컨트롤러
 
 	@PostMapping(value = "/boardwrite")
 	public ModelAndView boardwrite(Board board, List<MultipartFile> files, HttpSession session) {
-		board = bm.boardWrite(board, files, session); // name이 같은 애들로 데려옴
-		mav = bm.getContents(board.getB_num(), board.getB_id(), session);
+		Board writers =  new Board();
+		writers = bm.boardWrite(board, files, session); // name이 같은 애들로 데려옴
+		mav = bm.getContents(writers.getB_num(), writers.getB_id(), session);
 		return mav;
 	}
 	
