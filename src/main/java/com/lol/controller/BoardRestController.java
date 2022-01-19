@@ -37,7 +37,8 @@ class BoardRestController {
 	
 	@PostMapping(value="/addthumbs")
 	public int addthumbs(Thumb thumb) {
-		
+		System.out.println(thumb.getT_id());
+		System.out.println(thumb.getT_num());
 		int result;
 		result = bm.addThumbs(thumb);
 		
