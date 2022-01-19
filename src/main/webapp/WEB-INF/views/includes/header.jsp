@@ -21,7 +21,7 @@
               <a href="loginboardhome">박제 게시판</a>
             </li>
             <li>
-              <a href="test2">M.L</a>
+              <a href="test2">나는 사람인가?</a>
             </li>
             
            <c:set var = "m_id" value = "${m_id}"/>
@@ -45,23 +45,5 @@
       </div>
 
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-      <script type="text/javascript">
-    //카카오로그아웃  
-Kakao.init('b11084e50bf68f8f2d2794bd32141396'); //발급받은 키 중 javascript키를 사용해준다.
-      function kakaoLogout() {
-          if (Kakao.Auth.getAccessToken()) {
-            Kakao.API.request({
-              url: '/v1/user/unlink',
-              success: function (response) {
-              	console.log(response)
-              	alert("로그아웃 완료 !");
-              	location.href = 'easylogout'
-              },
-              fail: function (error) {
-                console.log(error)
-              },
-            })
-            Kakao.Auth.setAccessToken(undefined)
-          }
-        }  
+      <script src="./js/header.js">
       </script>
