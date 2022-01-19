@@ -71,19 +71,19 @@ public class BoardMM {
 		
 		if (currentPage == 1) {
 			sb.append("<a href='moveboardpage?pageNum=" + (currentPage + 1) + "'>");
-			sb.append("[다음]");
+			sb.append("<img src='./image/next.png'>");
 			sb.append("</a>");
 
 		} else if (currentPage == lastPage) {
 			sb.append("<a href='moveboardpage?pageNum=" + (currentPage - 1) + "'>");
-			sb.append("[이전]");
+			sb.append("<img src='./image/prev.png'>");
 			sb.append("</a>");
 		} else {
 			sb.append("<a href='moveboardpage?pageNum=" + (currentPage - 1) + "'>");
-			sb.append("[이전]");
+			sb.append("<img src='./image/prev.png'>");
 			sb.append("</a>");
 			sb.append("<a href='moveboardpage?pageNum=" + (currentPage + 1) + "'>");
-			sb.append("[다음]");
+			sb.append("<img src='./image/next.png'>");
 			sb.append("</a>");
 
 		}
@@ -193,7 +193,6 @@ public class BoardMM {
 		board.setB_id(session.getAttribute("m_id").toString());
 		
 		// 새 번호의 글에 title과 contents를 넣어준다.
-		System.out.println("||    ||\n||    ||\n|| boardWrite 호출됨!|| \n||    ||\n||    ||\n");
 		boolean b = bDao.boardWriteSelectKey(board);
 		System.out.println("bnum=" + board.getB_num()); // b_num 확인
 		if (b) { // 글쓰기 성공
