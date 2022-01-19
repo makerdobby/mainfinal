@@ -88,39 +88,40 @@ object-fit: cover;
 <table id='predict'>
 <tr>
 	<td>1.자신팀의 총 킬:</td>
-	<td><input type="text" name="myteam_Kills"></td>
+	<td><input type="text" name="myteam_Kills" required></td>
+	
 </tr>
 <tr>
 	<td>2.자신팀의 총 데스:</td>
-	<td><input type="text" name="myteam_Deaths"></td>
+	<td><input type="text" name="myteam_Deaths" required></td>
 </tr>
 <tr>
 	<td>3.자신팀의 총 어시스트:</td>
-	<td><input type="text" name="myteam_Assists"></td>
+	<td><input type="text" name="myteam_Assists" required></td>
 </tr>
 <tr>
 	<td>4.자신팀의 총 골드:</td>
-	<td><input type="text" name="myteam_Golds"></td>
+	<td><input type="text" name="myteam_Golds" required></td>
 </tr>
 <tr>
 	<td>5.상대팀의 총 킬:</td>
-	<td><input type="text" name="vsteam_Kills" ></td>
+	<td><input type="text" name="vsteam_Kills" required></td>
 </tr>
 <tr>
 	<td>6.상대팀의 총 데스:</td>
-	<td><input type="text" name="vsteam_Deaths" ></td>
+	<td><input type="text" name="vsteam_Deaths" required></td>
 </tr>
 <tr>
 	<td>7.상대팀의 총 어시스트:</td>
-	<td><input type="text" name="vsteam_Assists" ></td>
+	<td><input type="text" name="vsteam_Assists" required></td>
 </tr>
 <tr>
 	<td>8.상대팀의 총 골드:</td>
-	<td><input type="text" name="vsteam_Golds" ></td>
+	<td><input type="text" name="vsteam_Golds" required></td>
 </tr>
 <tr>
 	<td>9.자신의 골드:</td>
-	<td><input type="text" name="my_golds" ></td>
+	<td><input type="text" name="my_golds" required></td>
 </tr>
 <tr>
 	<td></td>
