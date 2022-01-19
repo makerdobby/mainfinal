@@ -591,14 +591,16 @@ function showalert(){
 
 function return_img(){
 	
-	document.getElementById('img-submit').submit();
+	 if (confirm("정말 삭제하시겠습니까?")){
+			document.getElementById('img-submit').submit();
+		 }
 };
 
-$('#delImg').mouseover(function(){
+$('#img-submit').mouseenter(function(){
 	
 	$('#delImg').html('<img src=\"./image/delete-open.png\">')
 })
-$('#delImg').mouseout(function(){
+$('#img-submit').mouseleave(function(){
 	
 	$('#delImg').html('<img src=\"./image/delete.png\">')
 })
