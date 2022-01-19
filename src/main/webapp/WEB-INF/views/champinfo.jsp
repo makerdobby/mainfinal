@@ -369,7 +369,14 @@ font-size:12px;
 font-weight: bold;
 }
 
-
+.footer1 {
+background-color:#1E262D;
+bottom:0;
+width:100%;
+text-align:center;
+font-size: 5px;
+padding: 10px;
+}
 
 
 </style>
@@ -426,6 +433,9 @@ font-weight: bold;
 	<div id="goodsynergy"><div class="sub_synergy"><h3>GOOD 팀 조합</h3></div></div>
 	<div id="badsynergy"><div class="sub_synergy"><h3>BAD 팀 조합</h3></div></div>
 </div>
+
+
+<%@include file="./includes/footer.jsp" %>	
 
 </body>
 

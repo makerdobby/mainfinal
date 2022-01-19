@@ -108,12 +108,7 @@ padding-top: 50px;
         background: rgb(25, 25, 37);
         border-radius: 15px;
       }
-body {
-    padding:0;
-    margin:0;
-    overflow:hidden;
-	  height: 600px;
-}
+
 canvas {
     padding:0;
     margin:0;
@@ -156,6 +151,8 @@ overflow: hidden;
 object-fit: cover;
 }
 
+
+
 </style>
 
 <body>
@@ -190,7 +187,6 @@ object-fit: cover;
 
 
     </main>
-
 </body>
 
 <script type="text/javascript">

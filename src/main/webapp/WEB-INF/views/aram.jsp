@@ -213,7 +213,14 @@ width : 40%;
 padding-left : 50px;
 }
 
-
+.footer1 {
+background-color:#1E262D;
+bottom:0;
+width:100%;
+text-align:center;
+font-size: 5px;
+padding: 10px;
+}
 
 </style>
 
@@ -251,7 +258,11 @@ padding-left : 50px;
 
 	</div>
 	</div>
-</div>
+
+
+<%@include file="./includes/footer.jsp" %>	
+
+
 </body>
 <script type="text/javascript">
 

@@ -210,6 +210,8 @@ html {
      z-index: -1;
      overflow: hidden;
 }
+
+
 </style>
 </head>
 <body>
@@ -278,6 +280,8 @@ function kakaoLogout() {
     }
   }  
 </script>
+        
+
         
 </body>
 
