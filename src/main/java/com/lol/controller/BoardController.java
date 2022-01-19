@@ -31,13 +31,14 @@ public class BoardController { // 게시판 관련 컨트롤러
 
 	@RequestMapping(value = "/loginboardhome") // get, post 모두 가능
 	public ModelAndView loginBoardHome(HttpSession session) { // 필수로 인자를 받을땐 @RequestParam 를 붙인다.
-		mav = bm.loginBoardHome(session,1);
+		mav = bm.loginBoardHome(session, 1);
 		return mav;
 	}
-	//페이지 이동하는 url
+
+	// 페이지 이동하는 url
 	@RequestMapping(value = "/moveboardpage") // get, post 모두 가능
 	public ModelAndView moveBoardPage(HttpSession session, int pageNum) { // 필수로 인자를 받을땐 @RequestParam 를 붙인다.
-		mav = bm.loginBoardHome(session,pageNum);
+		mav = bm.loginBoardHome(session, pageNum);
 		return mav;
 	}
 
@@ -47,30 +48,31 @@ public class BoardController { // 게시판 관련 컨트롤러
 		Integer bNum = board.getB_num();
 		// 조회수 올리는 함수
 		bm.viewUpdate(bNum);
-		
+
 		mav = bm.getContents(bNum, m_id, session);
 
 		return mav;
 
 	}
 
-	@GetMapping(value = "writefrm") public String writeFrm() { 
+	@GetMapping(value = "writefrm")
+	public String writeFrm() {
 		return "writeFrm";
-	} 
+	}
 
 	@PostMapping(value = "/boardwrite")
 	public ModelAndView boardwrite(Board board, List<MultipartFile> files, HttpSession session) {
-		Board writers =  new Board();
+		Board writers = new Board();
 		writers = bm.boardWrite(board, files, session); // name이 같은 애들로 데려옴
 		mav = bm.getContents(writers.getB_num(), writers.getB_id(), session);
 		return mav;
 	}
-	
+
 	@PostMapping(value = "/boarddelete")
-	public ModelAndView boardDelete(Integer b_num, RedirectAttributes attr,HttpSession session ) throws Exception{
-		System.out.println("bNum="+b_num);
-		bm.boardDelete(b_num,attr);
-		mav = bm.loginBoardHome(session,1);
+	public ModelAndView boardDelete(Integer b_num, RedirectAttributes attr, HttpSession session) throws Exception {
+		System.out.println("bNum=" + b_num);
+		bm.boardDelete(b_num, attr);
+		mav = bm.loginBoardHome(session, 1);
 		return mav; //
 	}
 

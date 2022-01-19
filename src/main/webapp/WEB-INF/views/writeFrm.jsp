@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style type="text/css">
-
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -15,6 +15,7 @@
 	margin: 0;
 	padding: 0
 }
+
 body {
 	font-family: sans-serif;
 	text-transform: uppercase;
@@ -22,7 +23,8 @@ body {
 	overflow: hidden;
 	margin: 0;
 }
-a, button{
+
+a, button {
 	cursor: pointer;
 }
 
@@ -30,7 +32,6 @@ nav a, #header a {
 	text-decoration: none;
 	color: #fff
 }
-
 
 #header {
 	background: #1E262D;
@@ -115,11 +116,10 @@ nav li li a:hover {
 	background: #bdc3c7;
 	background: #FAFBFB
 }
+
 html {
 	font-family: "Noto Sans KR", sans-serif;
 }
-
-
 
 .tbl_type, .tbl_type th, .tbl_type td {
 	border: 0
@@ -169,7 +169,6 @@ html {
 	padding: 10px;
 }
 
-
 .tbl_type .num, .tbl_type .date, .tbl_type .hit {
 	padding: 0;
 	font-family: Tahoma;
@@ -186,63 +185,61 @@ html {
 	text-align: left;
 	font-weight: bold;
 }
+
 .tbl_type .box input {
 	border: solid 1px #999;
 	width: 450px;
-	
-
 }
-.tbl_type input{
 
+.tbl_type input {
 	padding: 10px;
 }
 
 .tbl_type input:hover {
-	cursor:pointer;
+	cursor: pointer;
 }
-
 
 .tbl_type .title .pic, .tbl_type .title .new {
 	margin: 0 0 2px;
 	vertical-align: middle
 }
-
 </style>
 </head>
 <body>
 	<%@include file="./includes/header.jsp"%>
-	<form action="./boardwrite" id="frm" method="post" enctype="multipart/form-data">
-		<table class= "tbl_type" >
-		<colgroup>
-					<col width="300">
-					<col width="500">
-				</colgroup>
+	<form action="./boardwrite" id="frm" method="post"
+		enctype="multipart/form-data">
+		<table class="tbl_type">
+			<colgroup>
+				<col width="300">
+				<col width="500">
+			</colgroup>
 			<tr>
 				<td class="title">제목</td>
-				<td class="box"><input type="text" id="b_title" name="b_title" required></td>
+				<td class="box"><input type="text" id="b_title" name="b_title"
+					required></td>
 			</tr>
 			<tr>
 				<td class="title">파일첨부</td>
-				<td class="box"><input type="file" name="files" id="files" multiple  required>
-					<!-- <input type="hidden" id="fileCheck" name="fileCheck" value="0"> -->
-				 </td>
+				<td class="box"><input type="file" name="files" id="files"
+					multiple required> <!-- <input type="hidden" id="fileCheck" name="fileCheck" value="0"> -->
+				</td>
 			</tr>
 			<tr>
 				<td class="title">내용</td>
-				<td class="box"><textarea rows="20" cols="60" id="b_contents" name="b_contents" required></textarea>
-				</td>
+				<td class="box"><textarea rows="20" cols="60" id="b_contents"
+						name="b_contents" required></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center" >
-					<input type="submit" value="글작성">
-					<input type="reset" id="reset" value="취소">
-					<input type="button" onclick="location.href='loginboardhome'" value="글목록"> 
-				</td>
+				<td colspan="2" align="center"><input type="submit"
+					value="글작성"> <input type="reset" id="reset" value="취소">
+					<input type="button" onclick="location.href='loginboardhome'"
+					value="글목록"></td>
 			</tr>
 
 		</table>
 	</form>
-	
+
 </body>
 
 
