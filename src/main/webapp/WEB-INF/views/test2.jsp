@@ -9,153 +9,121 @@
 <title>Insert title here</title>	
 </head>
 <style> 
-*, *:before, *:after {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0}
-body{font-family:sans-serif;text-transform:uppercase;font-size:16px;color:#fff;margin: 0;}
-a{text-decoration:none;color:#fff}
-#header{background:#1E262D;width:100%;position:relative}
-#header:after{content:"";clear:both;display:block}
-.search{float:right;padding:28px}
-input{padding:10px;border-radius:20px}
-.logo{float:left;padding:26px 0 26px;font-weight: bold;}
-.logo a{font-size:28px;display:block;padding:0 0 0 20px}
-nav{float:right;}
-nav>ul{float:left;position:relative}
-nav li{list-style:none;float:left}
-nav li a{float:left;padding:35px}
-nav li a:hover{background:#2C3E50}
-nav li ul{display:none}
-nav li:hover ul{display:inline}
-nav li li{float:none}
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-nav li li a{float:none;color:#333;display:block;padding:8px 10px;border-radius:3px;font-size:13px}
-nav li li a:hover{background:#bdc3c7;background:#FAFBFB}
-.mega-col{width:25%;float:left}
-
-body{
-color:black;
-position: absolute;
-}
-
-
-#grid{
-display:grid;
-grid-template-columns: 0.7fr 0.3fr;	
-justify-content: space-around;
-font-size:20px;
-width: 100%;
-}
-
-td{
-width : 1000px; 
-}
-
-
-body>#grid{
-padding: 50px;
-
-}
-
-#if{
-width:100%;
-background-color: white;
-}
-
-#video {
-position: fixed;
-top: 0px;
-left: 0px;
-width: 100vw;
-height: 100vh;
-z-index: -1;
-overflow: hidden;
-object-fit: cover;
-}
-
+<style>
+@import url("./css/main.css");
 </style>
 
 <body>
 
-<%@include file="./includes/header.jsp" %>	
+	<main>
 
-        <video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
-      <source src="./videos/animated-mount-targon.mp4">
+		<%@include file="./includes/header.jsp"%>
 
-</video>
 
-<div id=grid>
-<form action="http://127.0.0.1:5000/tospring" method="GET"  target="param">
-<table id='predict'>
-<tr>
-	<td>1.자신팀의 총 킬:</td>
-	<td><input type="text" name="myteam_Kills" required></td>
-	
-</tr>
-<tr>
-	<td>2.자신팀의 총 데스:</td>
-	<td><input type="text" name="myteam_Deaths" required></td>
-</tr>
-<tr>
-	<td>3.자신팀의 총 어시스트:</td>
-	<td><input type="text" name="myteam_Assists" required></td>
-</tr>
-<tr>
-	<td>4.자신팀의 총 골드:</td>
-	<td><input type="text" name="myteam_Golds" required></td>
-</tr>
-<tr>
-	<td>5.상대팀의 총 킬:</td>
-	<td><input type="text" name="vsteam_Kills" required></td>
-</tr>
-<tr>
-	<td>6.상대팀의 총 데스:</td>
-	<td><input type="text" name="vsteam_Deaths" required></td>
-</tr>
-<tr>
-	<td>7.상대팀의 총 어시스트:</td>
-	<td><input type="text" name="vsteam_Assists" required></td>
-</tr>
-<tr>
-	<td>8.상대팀의 총 골드:</td>
-	<td><input type="text" name="vsteam_Golds" required></td>
-</tr>
-<tr>
-	<td>9.자신의 골드:</td>
-	<td><input type="text" name="my_golds" required></td>
-</tr>
-<tr>
-	<td></td>
-	<td><input type='submit' value="알아보기" id='btn'></td>
-</tr>
+		<video id="video" preload="auto" autoplay="true" loop="loop"
+			muted="muted" volume="0">
+			<source src="./videos/animated-kayle-morgana-login.mp4">
 
-<!-- 	<div>2.자신팀의 총 데스: &nbsp <input type="text" name="myteam_Deaths" ></div><br>
-	<div>3.자신팀의 총 어시스트: &nbsp <input type="text" name="myteam_Assists" ></div><br>
-	<div>4.자신팀의 총 골드: &nbsp <input type="text" name="myteam_Golds" ></div><br>
-	<div>5.상대팀의 총 킬:&nbsp <input type="text" name="vsteam_Kills" ></div><br>
-	<div>6.상대팀의 총 데스:&nbsp <input type="text" name="vsteam_Deaths" ></div><br>
-	<div>7.상대팀의 총 어시스트:&nbsp<input type="text" name="vsteam_Assists" ></div><br>
-	<div>8.상대팀의 총 골드:&nbsp <input type="text" name="vsteam_Golds" ></div><br>
-	<div>9.자신의 골드:&nbsp <input type="text" name="my_golds" ></div><br>
-	<div><input type='submit' value="알아보기" id='btn' class="btn btn-info"></div><br> -->
-</table>
-</form>
+		</video>
 
-<img src="./image/help.png" width="600px"></img>
+		<div class="a">
+			<div class="area">DHB.GG</div>
+			</div>
 
- 
+			<div class="wrap">
+				<div class="rap2">
+					<input id='search_area' type="text" class="searchTerm"
+						placeholder="챔피언 이름을 검색하세요" autocomplete='on'>
+					<button id="search_champ" type="submit" class="searchButton">Search</button>
+					<div class="searchTerm" id='autoMaker'></div>
+				</div>
+			</div>
 
-<div>
-	<iframe id="if" name="param" class="embed-responsive-item"></iframe>
-</div>
-</div>
+		</div>
 
-<script>
-    function ifun(msg){
-        alert(msg);
-    }
- // 전체
-</script>
-	
+
+	</main>
 
 </body>
+
+<script type="text/javascript">
+	$("span").hover(function() {
+		$((this)).css("background-color", "black")
+	},
+
+	function() {
+		$((this)).css("background-color", "transparent");
+	})
+
+	var ref = ${champ};
+
+	let championname = []
+	for ( let i in ref) {
+		championname.push(ref[i].champname)
+	}
+
+	var isComplete = false; //autoMaker 자식이 선택 되었는지 여부
+	$('#search_area').keyup(
+			function() {
+				var txt = $(this).val();
+				if (txt != '') { //빈줄이 들어오면
+					$('#autoMaker').children().remove();
+
+					ref.forEach(function(arg) {
+						if (arg.champname.indexOf(txt) > -1) {
+							$('#autoMaker').append(
+									$('<div>').text(arg.champname).attr({
+										'key' : arg.key
+									}));
+						}
+					});
+					$('#autoMaker').children().each(function() {
+						$(this).click(function() {
+							$('#search_area').val($(this).text());
+							$('#autoMaker').children().remove();
+							$("#search_area").focus();
+							isComplete = true;
+						});
+					});
+				} else {
+					$('#autoMaker').children().remove();
+				}
+			});
+	$('#search_area').keydown(function(event) {
+		if (isComplete) { //autoMaker 자식이 선택 되었으면 초기화
+			$('#insert_target').val('')
+		}
+	})
+
+	
+	$("#search_champ").click(function() {
+		let champname = $("#search_area").val()
+
+		if (champname == "" || championname.indexOf(champname) == -1) {
+			alert("챔피언 이름을 한글로 알맞게 적어주세요.")
+			$("#search_area").focus();
+		} else {
+			location.href = "./champinfo?champname=" + champname;
+		}
+	})
+	$("input[type=text]").on('keyup', function(e)
+		{ if(e.key==='Enter'||e.keyCode===13){
+			$("#search_champ").trigger('click'); } })
+	
+	
+</script>
+
 </html>

@@ -15,8 +15,8 @@
 			SELECT * FROM (
 				SELECT /*+INDEX_DESC(B PK_B_NUM)*/ ROWNUM RN, B.*
 				FROM B
-				WHERE ROWNUM<=#{pageNum}*10)
-			WHERE RN>=#{pageNum}*10-9	
+				WHERE ROWNUM<=#{pageNum}*8)
+			WHERE RN>=#{pageNum}*8-7	
 		]]>
 		
 	</select>
