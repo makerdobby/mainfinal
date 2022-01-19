@@ -375,6 +375,7 @@ div.btnbg:hover {
 						$(this).click(function() {
 							$('#search_area').val($(this).text());
 							$('#autoMaker').children().remove();
+							$("#search_area").focus();
 							isComplete = true;
 						});
 					});
