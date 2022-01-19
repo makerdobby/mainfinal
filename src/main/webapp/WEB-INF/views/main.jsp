@@ -349,10 +349,7 @@ div.btnbg:hover {
 		$((this)).css("background-color", "transparent");
 	})
 
-	var ref = $
-	{
-		champ
-	};
+	var ref = ${champ};
 
 	let championname = []
 	for ( let i in ref) {
@@ -391,6 +388,7 @@ div.btnbg:hover {
 		}
 	})
 
+	
 	$("#search_champ").click(function() {
 		let champname = $("#search_area").val()
 
@@ -401,6 +399,11 @@ div.btnbg:hover {
 			location.href = "./champinfo?champname=" + champname;
 		}
 	})
+	$("input[type=text]").on('keyup', function(e)
+		{ if(e.key==='Enter'||e.keyCode===13){
+			$("#search_champ").trigger('click'); } })
+	
+	
 </script>
 
 </html>

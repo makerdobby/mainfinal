@@ -129,7 +129,7 @@ object-fit: cover;
 
 #rune_two{
 display:none;
-width:400px;
+width:380px;
 }
 .runeone{
  border:solid 2px white;
