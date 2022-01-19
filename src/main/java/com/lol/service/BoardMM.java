@@ -67,8 +67,8 @@ public class BoardMM {
 	private String makeHtmlPage(int totalPage, int currentPage) {
 		StringBuffer sb = new StringBuffer();
 		// 현재그룹의 시작 페이지 번호
-		int lastPage = (totalPage%10) > 0 ? (totalPage/10 +1) : totalPage/10 ;
-		
+		int lastPage = (totalPage % 10) > 0 ? (totalPage / 10 + 1) : totalPage / 10;
+
 		if (currentPage == 1) {
 			sb.append("<a href='moveboardpage?pageNum=" + (currentPage + 1) + "'>");
 			sb.append("<img src='./image/next.png'>");
@@ -99,7 +99,7 @@ public class BoardMM {
 		mav = new ModelAndView();
 
 		String view = null;
-		
+
 		// 사용자가 선택한 글의 글번호를 보내주어서 board bean으로 받아온다.
 		Board board = bDao.getContents(bNum);
 
@@ -139,22 +139,22 @@ public class BoardMM {
 		mav.setViewName(view);
 
 		// 본인글일때 삭제 버튼 생성
-			String id = (String) session.getAttribute("m_id");
-			String b_id = board.getB_id();
-			
-			if (id != null){
-				if(id.equals(b_id)) {
-					mav.addObject("delBtn", makeHtmlDelBtn(board.getB_num()));
-				}
+		String id = (String) session.getAttribute("m_id");
+		String b_id = board.getB_id();
+
+		if (id != null) {
+			if (id.equals(b_id)) {
+				mav.addObject("delBtn", makeHtmlDelBtn(board.getB_num()));
 			}
+		}
 		return mav;
 	}
 
 	private String makeHtmlDelBtn(int b_num) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("<form action='boarddelete' method='post'>");
+		sb.append("<form id=\"img-submit\" action='boarddelete' method='post'>");
 		sb.append("<input type='hidden' name='b_num' value='" + b_num + "'>");
-		sb.append("<button>삭제</button>");
+		sb.append("<a href='#' onclick=\"return_img()\" id='delImg'><img src=\"./image/delete.png\"></a>");
 		sb.append("</form>");
 		return sb.toString();
 	}
@@ -191,7 +191,7 @@ public class BoardMM {
 	public Board boardWrite(Board board, List<MultipartFile> files, HttpSession session) {
 
 		board.setB_id(session.getAttribute("m_id").toString());
-		
+
 		// 새 번호의 글에 title과 contents를 넣어준다.
 		boolean b = bDao.boardWriteSelectKey(board);
 		System.out.println("bnum=" + board.getB_num()); // b_num 확인

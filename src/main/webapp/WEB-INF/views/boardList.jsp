@@ -279,6 +279,7 @@ button:hover {
 	background-color: #ad010c;
 	color: white;
 }
+
 #total-title {
 	background-color: #1E262D;
 	color: white;
@@ -293,23 +294,32 @@ button:hover {
 	border-radius: 15px;
 	letter-spacing: 1px;
 	animation: blink 1s linear infinite;
-
-
 }
 
-@keyframes blink {
-		
-		0% { color:white;}
-		50%{  color:gold;   }
-        100% {color:white; }
-
+@
+keyframes blink { 0% {
+	color: white;
 }
 
-.grid-4 img{
-width: 30px;
-height: 30px;
-margin: 5px 20px;
-
+50
+%
+{
+color
+:
+gold;
+}
+100
+%
+{
+color
+:
+white;
+}
+}
+.grid-4 img {
+	width: 30px;
+	height: 30px;
+	margin: 5px 20px;
 }
 </style>
 
@@ -404,7 +414,8 @@ margin: 5px 20px;
 					</colgroup>
 					<thead>
 						<tr>
-							<th id="total-title" scope="col" colspan="6" align="center">박제 게시판</th>
+							<th id="total-title" scope="col" colspan="6" align="center">박제
+								게시판</th>
 						</tr>
 					</thead>
 					<thead>
@@ -441,10 +452,10 @@ margin: 5px 20px;
 		</div>
 	</article>
 	<script type="text/javascript">
-function writealert(){
-	alert("로그인 후 이용해주세요");
-}
-</script>
+		function writealert() {
+			alert("로그인 후 이용해주세요");
+		}
+	</script>
 
 </body>
 </html>

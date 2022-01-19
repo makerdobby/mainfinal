@@ -9,7 +9,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/jquery.serializeObject.js"></script>
 <style>
-
 </style>
 <title>${board.b_title}</title>
 
@@ -35,7 +34,6 @@ $(function() {
 	
 </script>
 <style type="text/css">
-
 body {
 	font-family: sans-serif;
 	text-transform: uppercase;
@@ -43,7 +41,8 @@ body {
 	overflow: hidden;
 	margin: 0;
 }
-a, button{
+
+a, button {
 	cursor: pointer;
 }
 
@@ -51,7 +50,6 @@ nav a, #header a {
 	text-decoration: none;
 	color: #fff
 }
-
 
 #header {
 	background: #1E262D;
@@ -136,6 +134,7 @@ nav li li a:hover {
 	background: #bdc3c7;
 	background: #FAFBFB
 }
+
 html {
 	font-family: "Noto Sans KR", sans-serif;
 }
@@ -176,6 +175,7 @@ a:link {
 	float: right;
 	box-sizing: border-box;
 }
+
 #cell-right {
 	float: right;
 	box-sizing: border-box;
@@ -396,32 +396,27 @@ button:hover {
 	cursor: pointer;
 }
 
-#cell-right img{
-width: 30px;
-height: 30px;
-margin: 5px;
-
-}
-#cell-right input{
-
-background: url("./image/delete.png") no-repeat;
-width: 20px;
-height: 20px;
-margin: 5px;
-border: none;
-cursor: pointer;
+#cell-right img {
+	width: 30px;
+	height: 30px;
+	margin: 5px;
 }
 </style>
 </head>
 <body>
-<%@include file="./includes/header.jsp"%>
+	<%@include file="./includes/header.jsp"%>
 	<header class="top-menu con row">
 		<div id="cell-right">
+			<table>
+				<tr>
+					<th><a href="loginboardhome"><img src="./image/list.png"></a>
+					</th>
+					<th>
+						<!-- 글삭제 버튼 --> ${delBtn}
+					</th>
+				</tr>
+			</table>
 			<!-- 글목록 버튼  -->
-			<a href="loginboardhome"><img src="./image/list.png"></a>
-			
-			<!-- 글삭제 버튼 -->
-			${delBtn}
 		</div>
 	</header>
 
@@ -457,7 +452,7 @@ cursor: pointer;
 						<div class="article-writer cell">
 							<div class="writer-icon">
 								<c:set var="files" value="${bfList}" />
-								
+
 								<c:if test="${empty files}">첨부된 파일이 없습니다.</c:if>
 								<c:if test="${!empty files}">
 									<c:forEach var="file" items="${files}">
@@ -483,7 +478,8 @@ cursor: pointer;
 				</div>
 				<div>
 					<textarea rows="3" cols="50" name="r_contents" id="r_contents"> </textarea>
-					<input type="button" value="댓글전송" onclick="replyInsert(${board.b_num})"
+					<input type="button" value="댓글전송"
+						onclick="replyInsert(${board.b_num})"
 						style="width: 80px; height: 40px">
 				</div>
 			</form>
@@ -592,7 +588,20 @@ function addThumbs(){
 function showalert(){
 	alert("이미 추천한 게시글입니다.");
 };
+
+function return_img(){
 	
+	document.getElementById('img-submit').submit();
+};
+
+$('#delImg').mouseover(function(){
+	
+	$('#delImg').html('<img src=\"./image/delete-open.png\">')
+})
+$('#delImg').mouseout(function(){
+	
+	$('#delImg').html('<img src=\"./image/delete.png\">')
+})
 
 
 </script>
