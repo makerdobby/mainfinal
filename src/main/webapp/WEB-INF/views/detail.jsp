@@ -56,7 +56,7 @@ nav a, #header a {
 #header {
 	background: #1E262D;
 	width: 100%;
-	position: relative
+	position: relative;
 }
 
 #header:after {
@@ -176,6 +176,10 @@ a:link {
 	float: right;
 	box-sizing: border-box;
 }
+#cell-right {
+	float: right;
+	box-sizing: border-box;
+}
 
 .margin-0-auto {
 	margin: 0 auto;
@@ -231,7 +235,7 @@ a:link {
 	min-width: 320px;
 }
 
-.top-menu a {
+.top-menu a, .top-menu button {
 	text-decoration: none;
 	color: gray;
 	font-weight: bold;
@@ -391,14 +395,30 @@ button {
 button:hover {
 	cursor: pointer;
 }
+
+#cell-right img{
+width: 30px;
+height: 30px;
+margin: 5px;
+
+}
+#cell-right input{
+
+background: url("./image/delete.png") no-repeat;
+width: 20px;
+height: 20px;
+margin: 5px;
+border: none;
+cursor: pointer;
+}
 </style>
 </head>
 <body>
 <%@include file="./includes/header.jsp"%>
 	<header class="top-menu con row">
-		<div class="cell-right">
+		<div id="cell-right">
 			<!-- 글목록 버튼  -->
-			<a href="loginboardhome">글 목록</a>
+			<a href="loginboardhome"><img src="./image/list.png"></a>
 			
 			<!-- 글삭제 버튼 -->
 			${delBtn}
@@ -456,7 +476,7 @@ button:hover {
 	<div class="con reply">
 		<h1 class="">댓글 입력</h1>
 		<section class="reply-form">
-			<form id="rFrm" name="rFrm" action="replyInsert">
+			<form id="rFrm" name="rFrm">
 				<div>
 					<img class="human-img" src="./image/human.png"><input
 						type="text" value="${m_id}" readonly>
