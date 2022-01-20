@@ -14,7 +14,6 @@
 <script type="text/javascript">
 $(function() {
 	let chkid = ${check_t_id};
-	console.log(chkid);
 	if (chkid == 1) { //추천한 적이 있다
 		$('#thumbsdown').attr('style','display:none');
 		$('#thumbsup').css('display','inline');
@@ -109,7 +108,7 @@ $(function() {
 						type="text" value="${m_id}" readonly>
 				</div>
 				<div>
-					<textarea rows="3" cols="50" name="r_contents" id="r_contents"> </textarea>
+					<textarea rows="3" cols="50" name="r_contents" id="r_contents"></textarea>
 					<input type="button" value="댓글전송"
 						onclick="replyInsert(${board.b_num})"
 						style="width: 80px; height: 40px">
@@ -146,11 +145,15 @@ $(function() {
 <script type="text/javascript">
 
 function replyInsert(bNum){
-	
 	if( ${check_t_id} == 2){
 	      alert("로그인 후 이용해주세요");
 	      return;
-	   }
+	}
+	if($("#r_contents").val() == ""){
+		alert("내용을 입력해 주세요.");
+		$("#r_contents").focus();
+		return;
+	}
 	
 	//text = $("#r_contents").val()
 	let obj=$("#rFrm").serializeObject(); // 폼의 모든 데이터를 js객체로 변환
@@ -168,7 +171,6 @@ function replyInsert(bNum){
 		contentType:"application/json; charset=UTF-8",
 		dataType:"json",
 		success: function(data){
-			console.log(data);
  			$("#rTable").empty();
 			for (let i in data){
 				str = "<tr height='20' align='center'>";
@@ -210,9 +212,6 @@ function addThumbs(){
             
             
             success: function (count) {
-               
-                  
-               console.log(count)
                 if( ${board.b_thumbs} == count){
                   return;
                 

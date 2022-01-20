@@ -43,7 +43,6 @@ function kakaoLogin() {
         Kakao.API.request({
           url: '/v2/user/me',
           success: function (response) {
-        	  console.log(response)
         	  location.href = 'easylogin?m_id='+response.id
         	  
           },

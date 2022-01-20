@@ -58,7 +58,6 @@ public class FileManager {
 				mf.transferTo(new File(path + sysFileName)); // 서버upload에 파일 저장
 				f = bDao.fileInsert(fMap);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} // for end

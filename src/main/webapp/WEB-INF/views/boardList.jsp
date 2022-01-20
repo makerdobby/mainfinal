@@ -35,11 +35,9 @@
 									</button>
 								</form>
 							</c:if> <%-- 로그인이 안돼있다면 --%> <c:if test="${empty m_id}">
-								<form onsubmit="writealert()">
-									<button id="writeBtn">
+									<button id="writeBtn" onclick="writealert()">
 										<img class="writeimg" src="./image/write.png">
 									</button>
-								</form>
 							</c:if>
 
 						</th>
@@ -143,9 +141,11 @@
 		</div>
 	</article>
 	<%@include file="./includes/footer.jsp" %>	
+	
 	<script type="text/javascript">
 		function writealert() {
 			alert("로그인 후 이용해주세요");
+			return;
 		}
 	</script>
 

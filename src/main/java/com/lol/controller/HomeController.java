@@ -23,7 +23,7 @@ public class HomeController {
 	
 	ModelAndView mav;
 	
-	
+	// 홈
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() throws JsonProcessingException {
 		mav = ci.champlst();
@@ -31,12 +31,14 @@ public class HomeController {
 		return mav;
 	}
 	
+	// 칼바람분석
 	@GetMapping(value = "aram")
 	public ModelAndView aram() throws JsonProcessingException {
 		mav = ci.aram();
 		return mav;
 	}
 	
+	// 챔피언정보
 	@GetMapping(value = "/champinfo")
 	public ModelAndView champInfo(Champlst cl) throws JsonProcessingException {
 		
@@ -46,19 +48,7 @@ public class HomeController {
 		
 	}
 	
-	@GetMapping(value = "login")
-	public ModelAndView login() throws JsonProcessingException {
-		mav = ci.login();
-		return mav;
-		
-	}
-	@RequestMapping(value = "/test2", method = RequestMethod.GET)
-	public ModelAndView Test() {
-		ModelAndView mav = new ModelAndView();
-		
-		return mav;
-	}
-	
+	// 카카오톡 간편 로그인
 	@GetMapping(value = "/easylogin")
 	public String easylogin(Member mb, HttpSession session) {
 		
@@ -66,12 +56,30 @@ public class HomeController {
 		
 		return "redirect:/loginboardhome";
 	}
+	
+	// 카카오톡 로그인 -> 로그아웃
 	@GetMapping(value = "/easylogout")
 	public String easylogoit(HttpSession session) {
 		
 		session.invalidate();
 		
 		return "redirect:/";
+	}
+	
+	// 로그인 페이지로 이동
+	@GetMapping(value = "login")
+	public ModelAndView login() throws JsonProcessingException {
+		mav = ci.login();
+		return mav;
+		
+	}
+	
+	// 나는 사람인가? 페이지 이동
+	@RequestMapping(value = "/test2", method = RequestMethod.GET)
+	public ModelAndView Test() {
+		ModelAndView mav = new ModelAndView();
+		
+		return mav;
 	}
 	
 }

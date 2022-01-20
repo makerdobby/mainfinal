@@ -5,7 +5,6 @@ Kakao.init('b11084e50bf68f8f2d2794bd32141396'); //발급받은 키 중 javascrip
             Kakao.API.request({
               url: '/v1/user/unlink',
               success: function (response) {
-              	console.log(response)
               	alert("로그아웃 완료 !");
               	location.href = 'easylogout'
               },

@@ -1,9 +1,6 @@
 package com.lol.service;
 
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +20,7 @@ import com.lol.dao.IBoardDao;
 public class BoardMM {
 
 	@Autowired
-	private IBoardDao bDao; // 스프링 매퍼랑 결랍해서 구현체 주입
+	private IBoardDao bDao;
 
 	@Autowired
 	private FileManager fm;
@@ -48,7 +45,6 @@ public class BoardMM {
 		// top3 list 데이터 가져오기
 		top3List = bDao.getTop3List();
 
-		// System.out.println("bList="+bList);
 		if (bList != null && bList.size() != 0) {
 			mav.addObject("bList", bList);
 			mav.addObject("top3List", top3List);
@@ -56,7 +52,6 @@ public class BoardMM {
 
 			view = "boardList";
 		} else {
-			System.out.println("받아올 페이지가 없습니다");
 			view = "login";
 		}
 		mav.setViewName(view);
@@ -174,7 +169,6 @@ public class BoardMM {
 	public int addThumbs(Thumb thumb) {
 		int result = 0;
 		// 이 글에 추천한 적이 있는 사람이냐
-		// bDao.updateBoardThumb();
 		String t_id = bDao.checkThumbs(thumb);
 
 		if (t_id == null || "".equals(t_id)) { // 이미 추천이 있음
