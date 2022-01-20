@@ -23,8 +23,7 @@ body {
 	font-family: sans-serif;
 	text-transform: uppercase;
 	font-size: 16px;
-	overflow: hidden;
-	margin: 0;
+	
 }
 
 a, button {
@@ -216,11 +215,11 @@ html {
 }
 
 .tbl_type .num, .tbl_type .date, .tbl_type .hit {
-	padding: 0;
+	
 	font-family: Tahoma;
 	font-size: 11px;
-	line-height: normal
-}
+	line-height: auto;
+} 555
 
 .tbl_type .title {
 	text-align: left
@@ -296,30 +295,34 @@ button:hover {
 	animation: blink 1s linear infinite;
 }
 
-@
-keyframes blink { 0% {
-	color: white;
+@keyframes blink {
+
+	0% {color: white;}
+	50%{color:gold;}
+	100%{color:white;}
+
 }
 
-50
-%
-{
-color
-:
-gold;
+.grid-4 {
+margin-top:20px;
+margin-bottom:20px;
 }
-100
-%
-{
-color
-:
-white;
-}
-}
+
 .grid-4 img {
 	width: 30px;
 	height: 30px;
-	margin: 5px 20px;
+	margin:5px;
+	
+}
+.footer1 {
+background-color:#1E262D;
+bottom:0;
+width:100%;
+text-align:center;
+font-size: 5px;
+padding: 10px;
+color: white;
+
 }
 </style>
 
@@ -451,6 +454,7 @@ white;
 
 		</div>
 	</article>
+	<%@include file="./includes/footer.jsp" %>	
 	<script type="text/javascript">
 		function writealert() {
 			alert("로그인 후 이용해주세요");

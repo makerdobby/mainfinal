@@ -29,9 +29,7 @@
 		</video>
 
 		<div class="a">
-			<div class="logo2">
-				<div class="dhb">DHB</div>
-				<div class="gg">.GG</div>
+			<div class="area">DHB.GG</div>
 			</div>
 
 			<div class="wrap">
@@ -42,9 +40,6 @@
 					<div class="searchTerm" id='autoMaker'></div>
 				</div>
 			</div>
-
-		</div>
-
 
 	</main>
 

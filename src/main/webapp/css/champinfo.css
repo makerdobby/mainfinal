@@ -428,3 +428,12 @@ left: 83px;
 img.questionmark:hover + p.bubble {
   display: block;
 }
+.footer1 {
+background-color:#1E262D;
+bottom:0;
+width:100%;
+text-align:center;
+font-size: 5px;
+padding: 10px;
+color: white;
+}

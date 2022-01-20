@@ -8,8 +8,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/jquery.serializeObject.js"></script>
-<style>
-</style>
+
 <title>${board.b_title}</title>
 
 <script type="text/javascript">
@@ -24,7 +23,6 @@ $(function() {
 		$('#thumbsup').css('display','none');
 	}else{
 		$('#thumbsdown').attr('style','display:inline');
-		$('#thumbsdown').attr('style','pointer-events: none');
 		$('#thumbsup').css('display','none');
 		
 	}
@@ -38,7 +36,6 @@ body {
 	font-family: sans-serif;
 	text-transform: uppercase;
 	font-size: 16px;
-	overflow: hidden;
 	margin: 0;
 }
 
@@ -130,6 +127,10 @@ nav li li a {
 	font-size: 13px
 }
 
+h3 {
+margin:0;
+}
+
 nav li li a:hover {
 	background: #bdc3c7;
 	background: #FAFBFB
@@ -140,10 +141,14 @@ html {
 }
 
 /* 노말라이즈 */
-body, ul, li, h1, h2, h3, h4, h5, h6 {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+body, ul, li, h1,   h4, h5, h6 {
+
+	list-style: none; 
+}
+
+nav ul {
+margin:0;
+
 }
 
 a:link {
@@ -277,7 +282,6 @@ html, body {
 
 .article-detail>table {
 	border: none;
-	width: calc(100% - 100px);
 }
 
 .article-detail>table th, .article-detail>table td {
@@ -298,10 +302,6 @@ html, body {
 	height: 40px;
 	font-weight: bold;
 	font-size: 1.2rem;
-}
-
-.article-detail>table td:last-child {
-	padding-right: 100px;
 }
 
 .article-detail>.article-writer {
@@ -325,6 +325,7 @@ html, body {
 	border: 2px solid lightgray;
 	padding: 15px;
 	box-sizing: border-box;
+	margin-bottom: 60px;
 }
 
 .reply-form {
@@ -401,6 +402,17 @@ button:hover {
 	height: 30px;
 	margin: 5px;
 }
+.footer1 {
+background-color:#1E262D;
+bottom:0;
+width:100%;
+text-align:center;
+font-size: 5px;
+padding: 10px;
+color: white;
+}
+
+
 </style>
 </head>
 <body>
@@ -433,9 +445,9 @@ button:hover {
 				<tr class="article-info">
 
 					<th>날짜</th>
-					<td>${board.b_date}</td>
+					<td style="width: 400px;">${board.b_date}</td>
 					<th>조회수</th>
-					<td>${board.b_views}</td>
+					<td style="width: 100px;">${board.b_views}</td>
 					<th>
 						<button id="thumbsdown" onclick="addThumbs()">
 							<img class="thumb-img" src="./image/thumbsdown.png">
@@ -444,7 +456,7 @@ button:hover {
 							<img class="thumb-img" src="./image/thumbsup.png">
 						</button>
 					</th>
-					<td><div class="showthumbs">${board.b_thumbs}</div></td>
+					<td class="showthumbs" style="width: 100px;">${board.b_thumbs}</td>
 
 				</tr>
 				<tr class="article-body">
@@ -508,12 +520,18 @@ button:hover {
 			</table>
 		</section>
 	</div>
-
+<%@include file="./includes/footer.jsp" %>
 </body>
 
 <script type="text/javascript">
 
 function replyInsert(bNum){
+	
+	if( ${check_t_id} == 2){
+	      alert("로그인 후 이용해주세요");
+	      return;
+	   }
+	
 	//text = $("#r_contents").val()
 	let obj=$("#rFrm").serializeObject(); // 폼의 모든 데이터를 js객체로 변환
 	// 폼데이터 --> js객체 --> json --> 서버 --> 자바객체
@@ -553,37 +571,46 @@ function replyInsert(bNum){
 // 회색이미지 클릭시 추천 +1
 
 function addThumbs(){
-	
-	$('#thumbsdown').attr('style','display:none');
-	$('#thumbsup').css('display','inline');
-	   $.ajax({
-			url: "rest/addthumbs",
+
+   if( ${check_t_id} == 2){
+      alert("로그인 후 이용해주세요");
+      return;
+   }
+   
+   $('#thumbsdown').attr('style','display:none');
+   $('#thumbsup').css('display','inline');
+      
+      $.ajax({
+         url: "rest/addthumbs",
             type: "post",
             data: {
                 t_num: ${board.b_num},
-	  			t_id: ${m_id}
+              t_id: <%=(String)session.getAttribute("m_id")%>
             },
             
             
             success: function (count) {
-            	console.log(count)
-            	 if( ${board.b_thumbs} == count){
-            		/*  $('#thumbsdown').attr('style','pointer-events : none'); */
-					/* $('#thumbsdown').attr('style','display:none'); */
-            		return;
-            	 }
-            	else{            	
-	            	$(".showthumbs").html(count);
-            	} 
-            		
+               
+                  
+               console.log(count)
+                if( ${board.b_thumbs} == count){
+                  return;
+                
+               }
+               else{               
+                  $(".showthumbs").html(count);
+               } 
+                  
             },
             error: function (err ) {
-            	
-            	console.log(err);
-            	
+               
+               console.log(err);
+               
             }
-		})
-	};
+      })
+      
+      
+   };
 	
 function showalert(){
 	alert("이미 추천한 게시글입니다.");

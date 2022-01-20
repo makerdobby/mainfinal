@@ -71,7 +71,7 @@
    <p class="bubble">팀 조합이란 ? <br>
    해당 챔피언과 같은 팀을 이루었을 때의 승률에서 챔피언의 개인 승률을 뺀 값으로 두 챔피언의 조합이 얼마나 좋고 나쁜지를 보여줍니다.</p></div></div>
    </div>
-
+<%@include file="./includes/footer.jsp" %>	
 </body>
 
 <script type="text/javascript">
@@ -101,19 +101,19 @@ let badksynergy = champinfo.k_synergy.split(",")[1].split("|");
 str = "<img class='champimg' src="+champimg+">";
 switch (tier){
    case "1":
-      str += "<div class='cma1'>"+champname+"</div><div class='cma2'>티어 : <img src='./image/1.jpg'></div><div class='cma3'>역할군 : "+position+"</div>"
+      str += "<div class='cma1'>"+champname+"</div><div class='cma2'>티어 : <img src='./image/1.png'></div><div class='cma3'>역할군 : "+position+"</div>"
       break;
    case "2":
-      str += "<div class='cma1'>"+champname+"</div><div class='cma2'>티어 : <img src='./image/2.jpg'></div><div class='cma3'>역할군 : "+position+"</div>"
+      str += "<div class='cma1'>"+champname+"</div><div class='cma2'>티어 : <img src='./image/2.png'></div><div class='cma3'>역할군 : "+position+"</div>"
       break;
    case "3":
-      str += "<div class='cma1'>"+champname+"</div><div class='cma2'>티어 : <img src='./image/3.jpg'></div><div class='cma3'>역할군 : "+position+"</div>"
+      str += "<div class='cma1'>"+champname+"</div><div class='cma2'>티어 : <img src='./image/3.png'></div><div class='cma3'>역할군 : "+position+"</div>"
       break;
    case "4":
-      str += "<div class='cma1'>"+champname+"</div><div class='cma2'>티어 : <img src='./image/4.jpg'></div><div class='cma3'>역할군 : "+position+"</div>"
+      str += "<div class='cma1'>"+champname+"</div><div class='cma2'>티어 : <img src='./image/4.png'></div><div class='cma3'>역할군 : "+position+"</div>"
       break;
    case "5":
-      str += "<div class='cma1'>"+champname+"</div><div class='cma2'>티어 : <img src='./image/5.jpg'></div><div class='cma3'>역할군 : "+position+"</div>"
+      str += "<div class='cma1'>"+champname+"</div><div class='cma2'>티어 : <img src='./image/5.png'></div><div class='cma3'>역할군 : "+position+"</div>"
       break;
 }
 $("#champimg").append(str);

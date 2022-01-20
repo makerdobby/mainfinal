@@ -45,7 +45,7 @@
 
 	</div>
 	</div>
-</div>
+	<%@include file="./includes/footer.jsp" %>
 </body>
 <script type="text/javascript">
 
@@ -72,19 +72,19 @@ for (let i in champtierlst){
 	var num = champtierlst[i].tier
 	switch (num){
 		case "1": 
-			str += "<td class='th_rpt'><img src='./image/1.jpg'></td>";
+			str += "<td class='th_rpt'><img src='./image/1.png'></td>";
 			break;
 		case "2":
-			str += "<td class='th_rpt'><img src='./image/2.jpg'></td>";
+			str += "<td class='th_rpt'><img src='./image/2.png'></td>";
 			break;
 		case "3": 
-			str += "<td class='th_rpt'><img src='./image/3.jpg'></td>";
+			str += "<td class='th_rpt'><img src='./image/3.png'></td>";
 			break;
 		case "4":
-			str += "<td class='th_rpt'><img src='./image/4.jpg'></td>";
+			str += "<td class='th_rpt'><img src='./image/4.png'></td>";
 			break;
 		case "5":
-			str += "<td class='th_rpt'><img src='./image/5.jpg'></td>";
+			str += "<td class='th_rpt'><img src='./image/5.png'></td>";
 			break;
 		}
 	str += "</tr>";

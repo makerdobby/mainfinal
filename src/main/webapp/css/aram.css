@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 *, *:before, *:after {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0}
-body{font-family:sans-serif;text-transform:uppercase;font-size:16px;color:#fff;overflow: scroll;margin: 0;}
+body{font-family:sans-serif;text-transform:uppercase;font-size:16px;color:#fff; overflow-x: hidden;margin: 0;}
 a{text-decoration:none;color:#fff}
 #header{background:#1E262D;width:100%;position:relative}
 #header:after{content:"";clear:both;display:block}
@@ -30,7 +30,7 @@ nav li li a:hover{background:#bdc3c7;background:#FAFBFB}
   nav{display:block!important}
 }
 @media only screen and (max-width: 959px) {
-  nav{display:none;width:100%;clear:both;float:none;max-height:400px;overflow-y:scroll}
+  nav{display:none;width:100%;clear:both;float:none;max-height:400px;}
   #menu-icon{display:inline;top:45px;cursor:pointer}
   #menu-icon.active .first{transform:rotate(45deg);-webkit-transform:rotate(45deg);margin-top:10px}
   #menu-icon.active .second{transform:rotate(135deg);-webkit-transform:rotate(135deg);position:relative;top:-9px;}
@@ -202,4 +202,13 @@ width:700px;
 .cmap{
 width : 40%;
 padding-left : 50px;
+}
+.footer1 {
+background-color:#1E262D;
+bottom:0;
+width:100%;
+text-align:center;
+font-size: 5px;
+padding: 10px;
+color: white;
 }
