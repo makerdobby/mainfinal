@@ -9,7 +9,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/jquery.serializeObject.js"></script>
 
-<title>${board.b_title}</title>
+<title>[${board.b_num}]</title>
 
 <script type="text/javascript">
 $(function() {

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>	
+<title>Machine Learning</title>	
 </head>
 <style> 
 @import url("./css/test2.css");

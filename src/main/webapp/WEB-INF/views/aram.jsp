@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Champion List</title>
 
 <style>
 @import url("./css/aram.css");

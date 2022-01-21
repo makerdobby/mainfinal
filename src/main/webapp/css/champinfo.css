@@ -130,22 +130,33 @@ width:380px;
  border:solid 2px white;
 }
 .goodsynergy, .badsynergy{
-border-radius : 30%;
-width:30px;
-object-fit: cover;
+	width:60%;
+}
+.goodsynergy:hover, .badsynergy:hover{
+		
+	outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.sub{
+	
+	margin:0 auto;
+	display: inline-flex;
 }
 .goods, .bads{
 margin-bottom: 5px;
 margin-right: 5px;
 display: inline-block;
+float: left;
+width:auto;
+float: left;
 }
 .gs, .bs{
-border: solid 3px #1E262D;
-width: 140px;
-height: 78px;
-text-align: center;
 
-background-color:#1E262D;
+width: 90px;
+height: 100px;
+text-align: center;
 
 }
 
@@ -164,8 +175,14 @@ color:white;
     flex-wrap: wrap;
     justify-content: center;
 }
+@font-face {
+    font-family: 'KOTRA_BOLD-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .sub_synergy{
-width: 1000px;
+width: 100%;
 text-align: center;
 height: 50px;
 line-height: 50px;
@@ -173,15 +190,15 @@ line-height: 50px;
 #goodsynergy, #badsynergy{
 display: flex;
 flex-wrap: wrap;
-border: solid 3px #1E262D;
-border-collapse: collapse;
+border: solid 3px white;
+border-radius: 20px 20px 20px 20px;
 justify-content: center;
 backgroud-color:#1E262D;
-background-color:rgba(255,255,255,0.3);
-width:1120px;
+width:48%;
 margin: 0 auto;
 margin-top:30px;
 color:white;
+background-color:#1E262D;	
 }
 
 
@@ -383,23 +400,25 @@ height: 15px;
 }
 .bubble
 {
-display: none;
+display:none;
 position: relative;
 width: 520px;
-padding: 0px;
+padding: 5px;
 background: #FFFEAF;
 -webkit-border-radius: 20px;
 -moz-border-radius: 20px;
 border-radius: 20px;
 border: #000000 solid 1px;
-bottom: 195px;
-margin-left: 467px;
+bottom: 208px;
+margin-left: 40px;
 color: black;
 font-weight: 600;
+font-family: 'KOTRA_BOLD-Bold';
 }
 
 .bubble:after
 {
+padding:auto;
 content: '';
 position: absolute;
 border-style: solid;
@@ -409,7 +428,7 @@ display: block;
 width: 0;
 z-index: 1;
 bottom: -11px;
-left: 83px;
+left: 415px;
 }
 
 .bubble:before
@@ -423,7 +442,7 @@ display: block;
 width: 0;
 z-index: 0;
 bottom: -12px;
-left: 83px;
+left: 415px;
 }
 img.questionmark:hover + p.bubble {
   display: block;
@@ -435,5 +454,6 @@ width:100%;
 text-align:center;
 font-size: 5px;
 padding: 10px;
+margin-top: 10px;
 color: white;
 }
